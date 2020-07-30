@@ -33,7 +33,9 @@ export default {
   external: ['@qn-pandora/visualization-sdk'],
   plugins: [
     cleaner({ targets: [ 'dist' ] }),
-    commonjs(),
+    commonjs({
+      include: /node_modules/
+    }),
     resolve(),
     typescript({ rollupCommonJSResolveHack: true, clean: true }),
     // This extension renames all .vue and .ts to .js
